@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.demo.book.entity.Address;
 import com.demo.book.entity.Review;
+import com.demo.book.exception.AddressNotFoundException;
 import com.demo.book.service.IAddressService;
 import com.demo.book.service.IReviewService;
 
@@ -32,6 +33,11 @@ public class AddressController {
 		return new ResponseEntity<>(addressService.ListAllAddress(),HttpStatus.OK);
 	}
 
+	@GetMapping("/address/{addressId}")
+	ResponseEntity<Address> getAddressByAddressId(@PathVariable("addressId") int addressId) throws AddressNotFoundException {
+	   Address address = addressService.getAddressByAddressId(addressId);
+        return new ResponseEntity<>(address, HttpStatus.OK);// 200 Ok
+	}
 		// Add new address
 	@PostMapping("/address")
 	ResponseEntity<Address> addAdress(@RequestBody Address address) {
