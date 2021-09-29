@@ -3,6 +3,7 @@ package com.demo.book.service;
 
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,6 +12,9 @@ import com.demo.book.dao.IAddressDao;
 import com.demo.book.dao.IReviewDao;
 import com.demo.book.entity.Address;
 import com.demo.book.entity.Review;
+import com.demo.book.exception.AddressNotFoundException;
+
+
 
 @Service
 public class AddressServiceImpl implements IAddressService {
@@ -25,6 +29,14 @@ public class AddressServiceImpl implements IAddressService {
 		return addressDao.findAll();
 	}
 	
+     @Override
+     public Address getAddressByAddressId(int addressId) throws AddressNotFoundException{
+   	Optional<Address> address = addressDao.findById(addressId);
+ 	if(!address.isPresent()) {
+			throw new AddressNotFoundException("Address not found with given rollNo "+addressId);
+	}
+ 	return address.get();
+	}
 	
 	@Override
 	public Address addAddress(Address address) {
@@ -49,7 +61,12 @@ public class AddressServiceImpl implements IAddressService {
 		return addressDao.save(adde) ;
 		}
 
-}
+	
+
+	
+	}
+
+
 
 	
 	
