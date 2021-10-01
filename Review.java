@@ -30,70 +30,111 @@ public class Review {
 	private double rating;
 	
 
-//	private LocalDate reviewOn;
-//	
-//    private Book book;
-//	
-//	private Customer customer;
+      LocalDate  reviewOn;
+    
+    private Customer customer;
+
+    
+
+//  private Book book;
 
 	
 	public  Review () {}
 
-		
-		public Review(int reviewId, String headLine, String comment, double rating) {
-			super();
-			this.reviewId = reviewId;
-			this.headLine = headLine;
-			this.comment = comment;
-			this.rating = rating;
-		}
-		
-		
-		public int getReviewId() {
-			return reviewId;
-		}
-		
-		
-		public void setReviewId(int reviewId) {
-			this.reviewId = reviewId;
-		}
-		
-		
-		public String getHeadLine() {
-			return headLine;
-		}
-		
-		
-		public void setHeadLine(String headLine) {
-			this.headLine = headLine;
-		}
-		
-		
-		public String getComment() {
-			return comment;
-		}
-		
-		
-		public void setComment(String comment) {
-			this.comment = comment;
-		}
-		
-		
-		public double getRating() {
-			return rating;
-		}
-		
-		
-		public void setRating(double rating) {
-			this.rating = rating;
-		}
-		
-		
-		@Override
-		public String toString() {
-			return "Review [reviewId=" + reviewId + ", headLine=" + headLine + ", comment=" + comment + ", rating=" + rating
-					+ "]";
-		}
-			
+
+
+public Review(int reviewId, String headLine, String comment, double rating, LocalDate reviewOn, Customer customer) {
+	super();
+	this.reviewId = reviewId;
+	this.headLine = headLine;
+	this.comment = comment;
+	this.rating = rating;
+	this.reviewOn = reviewOn;
+	this.customer = customer;
+}
+
+
+
+public int getReviewId() {
+	return reviewId;
+}
+
+
+
+public void setReviewId(int reviewId) {
+	this.reviewId = reviewId;
+}
+
+
+
+public String getHeadLine() {
+	return headLine;
+}
+
+
+
+public void setHeadLine(String headLine) {
+	this.headLine = headLine;
+}
+
+
+
+public String getComment() {
+	return comment;
+}
+
+
+
+public void setComment(String comment) {
+	this.comment = comment;
+}
+
+
+
+public double getRating() {
+	return rating;
+}
+
+
+
+public void setRating(double rating) {
+	this.rating = rating;
+}
+
+
+
+public LocalDate getReviewOn() {
+	return reviewOn;
+}
+
+
+
+public void setReviewOn(LocalDate reviewOn) {
+	this.reviewOn = reviewOn;
+}
+
+
+
+public Customer getCustomer() {
+	return customer;
+}
+
+
+
+public void setCustomer(Customer customer) {
+	this.customer = customer;
+}
+
+
+
+@Override
+public String toString() {
+	return "Review [reviewId=" + reviewId + ", headLine=" + headLine + ", comment=" + comment + ", rating=" + rating
+			+ ", reviewOn=" + reviewOn + ", customer=" + customer + "]";
+}
 
 }
+
+
+
+		
