@@ -15,11 +15,9 @@ public interface IAddressService {
 
 	Address deleteAddressByAddress(int addressId);
 
-	Address updateAddress(int addressId, Address address);
-
-	//Address getAddressByAddressId(int addressId) throws com.demo.book.service.AddressNotFoundException;
-
 	Address getAddressByAddressId(int addressId) throws AddressNotFoundException;
+
+	Address updateAddress(int addressId, Address address);
 
 	//Address getAddressByAddressId(int addressId) throws AddressNotFoundException;
 
