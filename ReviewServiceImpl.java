@@ -49,9 +49,12 @@ public class ReviewServiceImpl implements IReviewService{
 	@Override
 	public Review addReview(ReviewDto reviewDto) {
 		logger.info(reviewDto.getCustomerId());
+		
 	    Customer customer=customerDao.findById(reviewDto.getCustomerId()).get();
-		Book book=bookDao.findById(reviewDto.getBookId()).get();
+	
+	    Book book=bookDao.findById(reviewDto.getBookId()).get();
 		logger.info(book);
+		
 		Review review =new Review();
 		review.setComment(reviewDto.getComment());
 		review.setHeadLine(reviewDto.getHeadLine());
@@ -77,6 +80,12 @@ public class ReviewServiceImpl implements IReviewService{
  		rev.setHeadLine(review.getHeadLine());
  		return reviewDao.save(rev) ;
      }
+
+	@Override
+	public Review listAllReviewsByBook(int bookId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 
 	
