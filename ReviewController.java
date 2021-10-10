@@ -50,6 +50,7 @@ public class ReviewController {
         @PostMapping("/reviews")
         ResponseEntity<Review> addReview(@Valid @RequestBody ReviewDto reviewDto) {
     	logger.info("Sending Request to the service layer to add Review");
+    	System.out.println("review data :"+reviewDto);
     	Review rvw = reviewservice.addReview(reviewDto);
     	logger.debug("Received Response from Service layer");
     	return new ResponseEntity<>(rvw, HttpStatus.CREATED);
@@ -69,4 +70,4 @@ public class ReviewController {
         return new ResponseEntity<>(rvw, HttpStatus.OK);
         }
 	    
-       
+}   
